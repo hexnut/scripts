@@ -6,17 +6,25 @@
 
 # Global inits
 M=`hostname`
-F=/tmp/cowmsg
+ARG=$1
 
 # Draw the cow
 function update_screen(){
    clear
-   figlet -f small $M > $F
+   F=$(mktemp /tmp/moodate.XXXXXX)
+
+   figlet -f small $M >> $F
    cowthink -W 30 -f default "It's" $NOW "...moo" >> $F
-   cat $F | lolcat -p 10
+   if [[ $ARG = '-l' ]]; then
+      cat $F | lolcat -p 10
+   else
+      cat $F
+   fi
+
+   rm -f $F
 }
 
-# Tell the cow to start mooing
+# Make the cow moo.
 while :
 do
    NOW=`date +"%A %b %d %Y %I:%M%p"`
