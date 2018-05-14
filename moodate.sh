@@ -2,7 +2,7 @@
 
 # Author:       Stephen Collins
 # Date:         2016-04-01
-# Description:  Instruct the cow to show system time and hostname
+# Description:  Instruct the cow to show system time and hostname.
 
 # Global inits
 M=`hostname`
