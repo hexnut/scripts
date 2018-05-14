@@ -24,7 +24,7 @@ function update_screen(){
    rm -f $F
 }
 
-# Make the cow moo.
+# Main bovine loop
 while :
 do
    NOW=`date +"%A %b %d %Y %I:%M%p"`
