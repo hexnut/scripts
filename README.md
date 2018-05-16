@@ -1,2 +1,2 @@
 # scripts
-Some scripts I use
+Some scripts I use.
