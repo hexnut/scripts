@@ -1,2 +1,3 @@
-# scripts
-Some scripts I use.
+# Scripts
+***
+Some utility scripts on phobos

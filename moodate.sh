@@ -9,13 +9,13 @@ M=`hostname`
 ARG=$1
 
 # Draw the cow
-function update_screen(){
+function update_screen() {
    clear
    F=$(mktemp /tmp/moodate.XXXXXX)
 
    figlet -f small $M >> $F
    cowthink -W 30 -f default "It's" $NOW "...moo" >> $F
-   if [[ $ARG = '-l' ]]; then
+   if [[ $ARG = '-c' ]]; then
       cat $F | lolcat -p 10
    else
       cat $F

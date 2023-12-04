@@ -6,17 +6,15 @@
 # Description: Broadcast a command to multiple tmux panes
 
 # Tmux initialization
-SESSION=0; WINDOW=2;
+SESSION=5; WINDOW=0;
 
 # Important: number of panes and IP's must agree!
-PANE_START=1; PANE_STOP=5
+PANE_START=1; PANE_STOP=3
 
-# Build an array of IP addresses
+# Array of IP addresses
 IP[1]="10.2.0.9";
 IP[2]="10.2.0.10";
 IP[3]="10.2.0.11";
-IP[4]="10.2.0.12";
-IP[5]="10.2.0.34";
 
 # Open telnet sessions on the devices
 PANE=$PANE_START
@@ -25,11 +23,14 @@ for I in `seq 1 ${#IP[@]}`; do
     PANE=$((++PANE))
 done
 
-# Build an array with commands to send
-CMD[1]="pinebelt"; CMD[2]="rtl2302"; CMD[3]="show alarm log"; CMD[4]=" "; CMD[5]=" "
+# Array of commands to send
+CMD[1]="pinebelt";
+CMD[2]="xyzabc";
+CMD[3]="show alarm log";
+CMD[4]=" ";
 
 # Send commands to the devices
-sleep 1
+sleep 2
 for I in `seq 1 ${#CMD[@]}`; do
     for PANE in `seq $PANE_START $PANE_STOP`; do
         tmux send-keys -t $SESSION:$WINDOW.$PANE -l "${CMD[I]}"
